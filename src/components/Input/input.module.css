@@ -1,0 +1,29 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  height: 30px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  padding-left: 10px;
+  background-color: #ddddddb3;
+  transition: all 150ms linear;
+}
+
+.input:hover {
+  border-style: solid;
+  border-color: #727272;
+}
+
+.input:focus {
+  border-color: #000;
+  background-color: #fff;
+}
+
+.label {
+  color: #3e3e3e;
+}
