@@ -3,9 +3,13 @@ import React from "react";
 
 class Button extends React.Component {
   render() {
+    const { onClick, name, type = "button" } = this.props;
+
     return (
       <div>
-        <button className={styles.button}>{this.props.name}</button>
+        <button type={type} onClick={onClick} className={styles.button}>
+          {name}
+        </button>
       </div>
     );
   }

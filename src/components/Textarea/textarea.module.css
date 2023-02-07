@@ -27,3 +27,23 @@
 .label {
   color: #3e3e3e;
 }
+
+.charsLeftPlaceholder {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  transform: translateY(calc(100% + 2px));
+  color: #696969;
+  font-size: 12px;
+}
+
+.errorMessage {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  font-size: 12px;
+  left: 0;
+  transform: translateY(calc(100% + 2px));
+  color: red;
+}

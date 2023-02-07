@@ -1,10 +1,18 @@
 import styles from "./input.module.css";
 import React, { forwardRef } from "react";
 
-class Input extends React.Component {
+class Phone extends React.Component {
+  createMask = (event) => {
+    const value = event.target.value.replace(/\D+/g, "");
+    const maskValue = value.replace(
+      /(\d{1})(\d{4})(\d{2})(\d{2})/,
+      "$1-$2-$3-$4"
+    );
+    this.props.forwardRef.current.value = maskValue;
+  };
+
   render() {
     const { placeholder, forwardRef, name, error } = this.props;
-    console.log(this.props);
     return (
       <div className={styles.inputContainer}>
         <label className={styles.label}>{placeholder}:</label>
@@ -12,8 +20,10 @@ class Input extends React.Component {
           ref={forwardRef}
           className={styles.input}
           placeholder={placeholder}
-          type="text"
+          type="tel"
           name={name}
+          onChange={this.createMask}
+          maxLength={12}
         />
         {!!error && <p className={styles.errorMessage}>{error}</p>}
       </div>
@@ -22,5 +32,5 @@ class Input extends React.Component {
 }
 
 export default forwardRef((props, ref) => (
-  <Input {...props} forwardRef={ref} />
+  <Phone {...props} forwardRef={ref} />
 ));
