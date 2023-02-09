@@ -58,7 +58,6 @@ const Form = ({ onFormSubmit }) => {
     }
 
     if (!hasAnyErrors) {
-      alert("Данные заполнены успешно");
       onFormSubmit(fieldValues);
     }
   };
