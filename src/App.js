@@ -1,25 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import FormResult from "./modules/questionnairy/FormResult";
 import Form from "./modules/questionnairy/Form";
 
-class App extends React.Component {
-  state = {
-    userInfo: null,
+const App = () => {
+  const [userInfo, setUserInfo] = useState(null);
+
+  const onFormSubmit = (userInfo) => {
+    setUserInfo(userInfo);
   };
 
-  onFormSubmit = (userInfo) => {
-    this.setState({
-      userInfo,
-    });
-  };
-
-  render() {
-    return this.state.userInfo ? (
-      <FormResult {...this.state.userInfo} />
-    ) : (
-      <Form onFormSubmit={this.onFormSubmit} />
-    );
-  }
-}
+  return userInfo ? (
+    <FormResult {...userInfo} />
+  ) : (
+    <Form onFormSubmit={onFormSubmit} />
+  );
+};
 
 export default App;
